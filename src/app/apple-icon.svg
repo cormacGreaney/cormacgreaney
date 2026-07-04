@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" fill="none">
+  <rect width="180" height="180" rx="40" fill="#07070b"/>
+  <rect x="2" y="2" width="176" height="176" rx="38" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+  <text
+    x="90"
+    y="92"
+    text-anchor="middle"
+    dominant-baseline="central"
+    fill="#f4f4f5"
+    font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+    font-size="56"
+    font-weight="600"
+    letter-spacing="0.12em"
+  >CG</text>
+</svg>

@@ -1,0 +1,9 @@
+/*
+  Cache static assets on Cloudflare CDN
+  https://developers.cloudflare.com/pages/configuration/headers/
+*/
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
