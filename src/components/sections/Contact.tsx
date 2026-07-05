@@ -33,14 +33,27 @@ export function Contact() {
             <h3 id="contact-heading" className="sr-only">
               Contact information
             </h3>
-            <p className="text-lg text-zinc-300">
+            <p className="text-lg text-body">
               Have a project in mind or just want to say hello?
             </p>
-            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center">
               <Button href={`mailto:${siteConfig.email}`} variant="primary">
                 {siteConfig.email}
               </Button>
-              <Button href={siteConfig.social.linkedin} variant="secondary">
+              <Button
+                href={siteConfig.social.github}
+                variant="secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </Button>
+              <Button
+                href={siteConfig.social.linkedin}
+                variant="secondary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 LinkedIn
               </Button>
             </div>

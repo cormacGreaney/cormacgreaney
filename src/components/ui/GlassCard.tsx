@@ -14,7 +14,7 @@ export function GlassCard({
   return (
     <Component
       className={cn(
-        "glass rounded-2xl p-6 transition-colors duration-300 hover:border-white/15 sm:p-8",
+        "glass rounded-2xl p-6 transition-colors duration-300 hover:border-[var(--glass-hover)] sm:p-8",
         className,
       )}
     >

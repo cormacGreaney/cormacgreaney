@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 function NavLink({
   href,
@@ -25,7 +26,7 @@ function NavLink({
       className={cn(
         "transition-colors",
         isContact
-          ? "rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background hover:bg-zinc-200"
+          ? "rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background hover:opacity-90"
           : "text-sm text-muted hover:text-foreground",
         className,
       )}
@@ -65,8 +66,8 @@ export function Header() {
           className={cn(
             "flex items-center justify-between rounded-2xl border px-5 py-3 transition-all duration-300",
             scrolled
-              ? "border-white/10 bg-background/80 shadow-lg shadow-black/20 backdrop-blur-xl"
-              : "border-white/5 bg-background/60 backdrop-blur-md",
+              ? "border-glass-border bg-background/80 shadow-lg shadow-[var(--nav-shadow)] backdrop-blur-xl"
+              : "border-glass-border/60 bg-background/60 backdrop-blur-md",
           )}
           aria-label="Main navigation"
         >
@@ -75,20 +76,25 @@ export function Header() {
             className="group flex items-center transition-opacity hover:opacity-80"
             aria-label={`${siteConfig.name} — home`}
           >
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-white/5 font-mono text-xs font-semibold tracking-widest text-foreground transition-colors group-hover:border-accent/40 group-hover:text-accent">
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-glass-border bg-surface font-mono text-xs font-semibold tracking-widest text-foreground transition-colors group-hover:border-accent/40 group-hover:text-accent">
               {siteConfig.initials}
             </span>
           </a>
 
-          <ul className="hidden items-center gap-8 md:flex">
-            {siteConfig.nav.map((item) => (
-              <li key={item.href}>
-                <NavLink href={item.href} label={item.label} />
-              </li>
-            ))}
-          </ul>
+          <div className="hidden items-center gap-4 md:flex">
+            <ul className="flex items-center gap-8">
+              {siteConfig.nav.map((item) => (
+                <li key={item.href}>
+                  <NavLink href={item.href} label={item.label} />
+                </li>
+              ))}
+            </ul>
+            <ThemeToggle />
+          </div>
 
-          <button
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button
             type="button"
             className="relative z-50 flex h-10 w-10 items-center justify-center rounded-lg text-foreground md:hidden"
             onClick={() => setMobileOpen((open) => !open)}
@@ -120,6 +126,7 @@ export function Header() {
               />
             </div>
           </button>
+          </div>
         </nav>
       </div>
 

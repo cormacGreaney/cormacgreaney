@@ -6,11 +6,11 @@ type ButtonProps = React.ComponentProps<"a"> & {
 
 const variants = {
   primary:
-    "bg-foreground text-background hover:bg-zinc-200 focus-visible:ring-white/50",
+    "bg-foreground text-background hover:opacity-90 focus-visible:ring-[var(--focus-ring)]",
   secondary:
-    "glass text-foreground hover:border-white/20 focus-visible:ring-white/30",
+    "glass text-foreground hover:border-[var(--glass-hover)] focus-visible:ring-[var(--focus-ring)]",
   ghost:
-    "text-muted hover:text-foreground focus-visible:ring-white/20",
+    "text-muted hover:text-foreground focus-visible:ring-[var(--focus-ring)]",
 };
 
 export function Button({

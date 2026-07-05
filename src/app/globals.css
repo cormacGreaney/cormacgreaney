@@ -1,21 +1,67 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: dark;
   --background: #07070b;
   --foreground: #f4f4f5;
   --muted: #a1a1aa;
+  --body: #d4d4d8;
+  --tag: #a1a1aa;
   --accent: #818cf8;
   --accent-secondary: #6366f1;
   --surface: rgba(255, 255, 255, 0.04);
   --surface-border: rgba(255, 255, 255, 0.08);
   --glass: rgba(255, 255, 255, 0.03);
   --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-hover: rgba(255, 255, 255, 0.15);
+  --nav-shadow: rgba(0, 0, 0, 0.2);
+  --primary-hover: #e4e4e7;
+  --gradient-start: #e4e4e7;
+  --gradient-mid: #a1a1aa;
+  --gradient-end: #818cf8;
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --glow-color: rgba(99, 102, 241, 0.18);
+  --orb-indigo: rgba(99, 102, 241, 0.05);
+  --orb-violet: rgba(139, 92, 246, 0.05);
+  --selection-bg: rgba(129, 140, 248, 0.35);
+  --selection-fg: #ffffff;
+  --focus-ring: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --background: #f8f8fc;
+  --foreground: #18181b;
+  --muted: #71717a;
+  --body: #52525b;
+  --tag: #71717a;
+  --accent: #6366f1;
+  --accent-secondary: #4f46e5;
+  --surface: rgba(0, 0, 0, 0.03);
+  --surface-border: rgba(0, 0, 0, 0.08);
+  --glass: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-hover: rgba(99, 102, 241, 0.18);
+  --nav-shadow: rgba(0, 0, 0, 0.08);
+  --primary-hover: #27272a;
+  --gradient-start: #27272a;
+  --gradient-mid: #52525b;
+  --gradient-end: #6366f1;
+  --grid-line: rgba(0, 0, 0, 0.04);
+  --glow-color: rgba(99, 102, 241, 0.1);
+  --orb-indigo: rgba(99, 102, 241, 0.08);
+  --orb-violet: rgba(139, 92, 246, 0.08);
+  --selection-bg: rgba(99, 102, 241, 0.22);
+  --selection-fg: #18181b;
+  --focus-ring: rgba(99, 102, 241, 0.35);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
+  --color-body: var(--body);
+  --color-tag: var(--tag);
   --color-accent: var(--accent);
   --color-accent-secondary: var(--accent-secondary);
   --color-surface: var(--surface);
@@ -49,11 +95,14 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 ::selection {
-  background: rgba(129, 140, 248, 0.35);
-  color: #fff;
+  background: var(--selection-bg);
+  color: var(--selection-fg);
 }
 
 .glass {
@@ -64,7 +113,12 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #e4e4e7 0%, #a1a1aa 50%, #818cf8 100%);
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start) 0%,
+    var(--gradient-mid) 50%,
+    var(--gradient-end) 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -73,17 +127,22 @@ body {
 .gradient-glow {
   background: radial-gradient(
     ellipse 80% 50% at 50% -20%,
-    rgba(99, 102, 241, 0.18),
+    var(--glow-color),
     transparent
   );
 }
 
 .grid-pattern {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.03) 1px,
-      transparent 1px
-    ),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black, transparent);
+}
+
+.theme-orb-indigo {
+  background-color: var(--orb-indigo);
+}
+
+.theme-orb-violet {
+  background-color: var(--orb-violet);
 }
